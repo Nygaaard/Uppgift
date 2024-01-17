@@ -1,7 +1,33 @@
 @media all and (max-width: 1000px){
     .nav-desktop{display: none;}
     .nav-mobile{
+        width: 40%;
+        position: absolute;
+        top: 0;
+        right: 0;
         display: none;
+    }
+    .header-nav-mobile{
+        padding: 1rem 1.4rem;
+        list-style: none;
+        font-size: 1.4rem;
+        background-color: #282525;
+        height: 100vh;
+        text-align: center;
+    }
+    .header-nav-mobile li{
+        padding: 1rem;
+        margin-top: 2rem;
+        color: #FFF;
+    }
+    .header-nav-mobile li a{
+        color: #FFF;
+        text-decoration: none;
+    }
+    .header-nav-mobile li a:hover{color: #d2c7c7;}
+    .header-nav-mobile li a:active{color: #FFF;}
+    #close{
+        float: right;
     }
     #hamburger{
         display: flex;
@@ -9,4 +35,6 @@
         color: #FFF;
         padding: 1rem 1.4rem;
     }
+    #hamburger:hover{cursor: pointer;}
+    #close:hover{cursor: pointer;}
 }

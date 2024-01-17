@@ -30,7 +30,6 @@ header{
 }
 .header-nav li a:hover{color: #d2c7c7;}
 .header-nav li a:active{color: #FFF;}
-.nav-mobile{
-    display: none;
-}
+
 #hamburger{display: none;}
+.nav-mobile{display: none;}
