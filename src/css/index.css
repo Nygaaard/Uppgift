@@ -7,9 +7,9 @@
     margin-top: 1.4rem;
     margin-bottom: 0.8rem;
 }
-@media all and (max-width:800px){
+@media all and (max-width:1000px){
     .about{
-        width: 70%;
+        width: 80%;
         padding: 0.5rem;
     }
 }

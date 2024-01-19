@@ -6,6 +6,7 @@ const cssNano = require("gulp-cssnano");
 const imageMin = require("gulp-imagemin");
 const htmlMin = require("gulp-htmlmin");
 const webP = require("gulp-webp");
+const babel = require("gulp-babel");
 
 
 //Sökvägar
@@ -36,6 +37,9 @@ function jsTask() {
     return src(files.jsPath)
     .pipe(concat("main.js"))
     .pipe(terser())
+    .pipe(babel({
+        presets: ['@babel/env']
+    }))
     .pipe(dest("pub/js"));
 }
 
