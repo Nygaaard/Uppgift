@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="css/header.css">
         <link rel="stylesheet" href="css/mediaQueries.css">
         <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/description.css">
         <script src="js/hamburger.js" defer></script>
         <script src="js/close.js" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -35,7 +36,7 @@
         </nav>
     </header>
     <main>
-        <section>
+        <section class="content-container">
             <h1>Tillvägagångssätt</h1>
             <div>
                 <h2>Lägga till filer</h2>
@@ -50,7 +51,77 @@
             <div>
                 <h3>Gulp</h3>
                 <p>
-                    Efter att ha installerat Gulp så 
+                    Efter att ha installerat Gulp så skapade jag variabler i gulpfile.js för alla nödvändiga gulp-paket. De jag har laddat ner är:
+                    <ul class="gulp-list">
+                        <li><b>Gulp-concat</b></li>
+                        <p>Detta paket kokatinerar (slår ihop) olika flera filer till en. Jag har använt detta till funcktionerna cssTask och jsTask.</p>
+                        <li><b>Gulp-terser</b></li>
+                        <p>Terser minimerar och tar bort onödigt filinnehåll som kommenterar, radbryt osv. Jag använder denna till funktionen jsTask.</p>
+                        <li><b>Gulp-cssnano</b></li>
+                        <p>CSS-nano kompakterar css-filer så att de tar mindre plats. Denna använder jag bara till funktionen cssTask.</p>
+                        <li><b>Gulp-imagemin</b></li>
+                        <p>Gulp-imagegmin optimerar bilder så att de tar kortare tid att ladda upp. Denna använder jag till funktionen imageTask.</p>
+                        <li><b>Gulp-htmlmin</b></li>
+                        <p>Minimerar HTML-filer. Denna använder jag till funktionen copyHTML.</p>
+                        <li><b>Gulp-webp</b></li>
+                        <p>Omvandlar bilder till webP. Denna använder jag till funktionen convertToWebP.</p>
+                        <li><b>Gulp-babel</b></li>
+                        <p>Babel transpilerar JS-kod. Jag använder denna till jsTask.</p>
+                    </ul>
+                    <br>
+                    Jag har även skapat variabler för olika funktioner från gulp-paketet. Dessa är:
+                    <ul class="gulp-list">
+                        <li><b>src</b></li>
+                        <li><b>dest</b></li>
+                        <li><b>parallel</b></li>
+                        <li><b>series</b></li>
+                        <li><b>watch</b></li>
+                    </ul> 
+                    <br>
+                </p>
+                <p>
+                    Utöver dessa variabler som representerar olika funktioner i Gulp så har jag skapat ett objekt med varibaler för sökvägarna
+                    till mina filer. Dessa ligger i objektet "files". 
+                    <br>
+                    Sedan skapade jag flera funktioner som löser olika uppgifter. Dessa är:
+                    <ul class="gulp-list">
+                        <li><b>copyHTML</b></li>
+                        <p>Denna funktion tar alla filer som slutar med ".html", kör "htmlmin" och skickar vidare dessa till en ny mapp vid namn "pub.
+                            Mappen "pub" (publicering) kommer vara den mapp som körs när sidan läggs upp. 
+                        </p>
+                        <li><b>cssTask</b></li>
+                        <p>Tar alla filer som slutar på ".css", konkatinerar och minimerar dessa och skickar till mappen pub.</p>
+                        <li><b>jsTask</b></li>
+                        <p>Tar alla filer som slutar på ".js", konkatinerar, minimerar och transpilerar dessa och skickar till pub.</p>
+                        <li><b>imageTask</b></li>
+                        <p>Tar alla filer som ligger i image-mappen, optimerar dessa och skickar till pub.</p>
+                        <li><b>convertTowebP</b></li>
+                        <p>Tar alla filer som slutar på "webp", konverterar dessa och skickar till pub.</p>
+                        <li><b>watchTask</b></li>
+                        <p>Denna funktion övervakar filändrningar och kör automatiskt vissa uppgifter när ändringar upptäckts. Funktionen tar två argument:
+                            vilka som ska köras och vad som ska göras. I mitt fall vill jag att mina html, css, js och bild-filer ska köras med respektive funktion för dessa. 
+                            Funktionerna kör jag parallellt med gulp-funktionen "parallel".
+                        </p>
+                    </ul>
+                    <br>
+                    Utöver dessa funktionen som utför olika uppgifter för de specifika filerna i mitt projekt, så har jag ytterligare två "funktioner". Dessa är:
+                    <ul class="gulp-list">
+                        <li><b>exports.default</b></li>
+                        <p>Den här koden kör en serie med två uppgifter. Först kör den copyHTML, cssTask, jsTask, imageTask och convertToWebP. Dessa körs parallellt eftersom 
+                            de är inbakade i funktionen "parallel". Sedan körs även funktionen "watchTask". Detta för att kontrollera i vilken ordning allting körs. 
+                        </p>
+                        <li><b>exports.publish</b></li>
+                        <p>Denna kodrad krävdes för att kunna lägga upp projektet på Netlify. I alternativet för "build command" skrev jag in "gulp publish" och i alternativet för 
+                            "publish directory" skrev jag in "pub". 
+                        </p> 
+                    </ul>
+                </p>
+            </div>
+            <div>
+                <h4>Github och Netlify</h4>
+                <p>
+                    Efter att ha initierat Git så har jag gjort regelbundna commits. Framförallt efter större ändrningar. Jag skapade ett repo genom att "Publicera till Github" ifrån extensionen "Source Control" i 
+                    Visual Studio Code. Sedan har jag lagt upp sidan på Netlify genom att importera projektet från Github.
                 </p>
             </div>
         </section>

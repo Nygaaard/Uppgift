@@ -50,17 +50,17 @@ function imageTask() {
     .pipe(dest("pub/images"));
 }
 
-//Watch
-function watchTask() {
-    watch([files.htmlPath, files.cssPath, files.jsPath, files.imagePath], parallel(copyHTML, cssTask, jsTask, imageTask));
-} 
-
 //Konvertera till webP
 function convertToWebP(){
     return src(files.imagePath)
     .pipe(webP())
     .pipe(dest("pub/images"));
 }
+
+//Watch
+function watchTask() {
+    watch([files.htmlPath, files.cssPath, files.jsPath, files.imagePath], parallel(copyHTML, cssTask, jsTask, imageTask));
+} 
 
 //Exporterar
 exports.default = series(
