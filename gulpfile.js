@@ -5,6 +5,7 @@ const terser = require("gulp-terser");
 const cssNano = require("gulp-cssnano");
 const imageMin = require("gulp-imagemin");
 const htmlMin = require("gulp-htmlmin");
+const webP = require("gulp-webp");
 
 
 //Sökvägar
@@ -50,10 +51,17 @@ function watchTask() {
     watch([files.htmlPath, files.cssPath, files.jsPath, files.imagePath], parallel(copyHTML, cssTask, jsTask, imageTask));
 } 
 
+//Konvertera till webP
+function convertToWebP(){
+    return src(files.imagePath)
+    .pipe(webP())
+    .pipe(dest("pub/images"));
+}
+
 //Exporterar
 exports.default = series(
-    parallel(copyHTML, cssTask, jsTask, imageTask),
+    parallel(copyHTML, cssTask, jsTask, imageTask, convertToWebP),
     watchTask
     );
 
-exports.publish = series(parallel(copyHTML, cssTask, jsTask, imageTask));
+exports.publish = series(parallel(copyHTML, cssTask, jsTask, imageTask, convertToWebP));
