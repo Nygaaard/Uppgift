@@ -50,34 +50,34 @@
             </div>
             <div>
                 <h3>Gulp</h3>
-                <p>
+                <div>
                     Efter att ha installerat Gulp så skapade jag variabler i gulpfile.js för alla nödvändiga gulp-paket. De jag har laddat ner är:
                     <ul class="gulp-list">
                         <li><b>Gulp-concat</b></li>
-                        <p>Detta paket kokatinerar (slår ihop) olika flera filer till en. Jag har använt detta till funcktionerna cssTask och jsTask.</p>
-                        <p>Kommando: <i>npm i gulp-concat --save-dev</i></p>
+                        <li class="none-li">Detta paket kokatinerar (slår ihop) olika flera filer till en. Jag har använt detta till funktionerna cssTask och jsTask.</li>
+                        <li class="none-li">Kommando: <i>npm i gulp-concat --save-dev</i></li>
                         <li><b>Gulp-terser</b></li>
-                        <p>Terser minimerar och tar bort onödigt filinnehåll som kommenterar, radbryt osv. Jag använder denna till funktionen jsTask.</p>
-                        <p>Kommando: <i>npm install gulp-terser --save-dev</i></p>
+                        <li class="none-li">Terser minimerar och tar bort onödigt filinnehåll som kommenterar, radbryt osv. Jag använder denna till funktionen jsTask.</li>
+                        <li class="none-li">Kommando: <i>npm install gulp-terser --save-dev</i></li>
                         <li><b>Gulp-cssnano</b></li>
-                        <p>CSS-nano kompakterar css-filer så att de tar mindre plats. Denna använder jag bara till funktionen cssTask.</p>
-                        <p>Kommando: <i>npm install gulp-cssnano --save-dev</i></p>
+                        <li class="none-li">CSS-nano kompakterar css-filer så att de tar mindre plats. Denna använder jag bara till funktionen cssTask.</li>
+                        <li class="none-li">Kommando: <i>npm install gulp-cssnano --save-dev</i></li>
                         <li><b>Gulp-imagemin</b></li>
-                        <p>Gulp-imagegmin optimerar bilder så att de tar kortare tid att ladda upp. Denna använder jag till funktionen imageTask.
+                        <li class="none-li">Gulp-imagegmin optimerar bilder så att de tar kortare tid att ladda upp. Denna använder jag till funktionen imageTask.
                             Jag ändrade dock detta paket till en äldre version, då det nya inte fungerade. Det gjorde jag genom att ändra texten i "package.json"-
                             filen till ""gulp-imagemin": "^7.1.0"". Därefter tog jag bort node_modules-filen och installerade om npm-paketet med kommandot "npm install". 
                             Det ändrade version på paketet och det fungerade efter det. 
-                        </p>
-                        <p>Kommando: <i>npm install --save-dev gulp-imagemin</i></p>
+                        </li>
+                        <li class="none-li">Kommando: <i>npm install --save-dev gulp-imagemin</i></li>
                         <li><b>Gulp-htmlmin</b></li>
-                        <p>Minimerar HTML-filer. Denna använder jag till funktionen copyHTML.</p>
-                        <p>Kommando: <i>npm install --save-dev gulp-htmlmin</i></p>
+                        <li class="none-li">Minimerar HTML-filer. Denna använder jag till funktionen copyHTML.</li>
+                        <li class="none-li">Kommando: <i>npm install --save-dev gulp-htmlmin</i></li>
                         <li><b>Gulp-webp</b></li>
-                        <p>Omvandlar bilder till webP. Denna använder jag till funktionen convertToWebP.</p>
-                        <p>Kommando: <i>npm i gulp-webp --save-dev</i></p>
+                        <li class="none-li">Omvandlar bilder till webP. Denna använder jag till funktionen convertToWebP.</li>
+                        <li class="none-li">Kommando: <i>npm i gulp-webp --save-dev</i></li>
                         <li><b>Gulp-babel</b></li>
-                        <p>Babel transpilerar JS-kod. Jag använder denna till jsTask.</p>
-                        <p>Kommando: <i>npm install --save-dev gulp-babel @babel/core @babel/preset-env</i></p>
+                        <li class="none-li">Babel transpilerar JS-kod. Jag använder denna till jsTask.</li>
+                        <li class="none-li">Kommando: <i>npm install --save-dev gulp-babel @babel/core @babel/preset-env</i></li>
                     </ul>
                     <br>
                     Jag har även skapat variabler för olika funktioner från gulp-paketet. Dessa är:
@@ -89,44 +89,44 @@
                         <li><b>watch</b></li>
                     </ul> 
                     <br>
-                </p>
-                <p>
+                </div>
+                <div>
                     Utöver dessa variabler som representerar olika funktioner i Gulp så har jag skapat ett objekt med varibaler för sökvägarna
                     till mina filer. Dessa ligger i objektet "files". 
                     <br>
                     Sedan skapade jag flera funktioner som löser olika uppgifter. Dessa är:
                     <ul class="gulp-list">
                         <li><b>copyHTML</b></li>
-                        <p>Denna funktion tar alla filer som slutar med ".html", kör "htmlmin" och skickar vidare dessa till en ny mapp vid namn "pub.
+                        <li class="none-li">Denna funktion tar alla filer som slutar med ".html", kör "htmlmin" och skickar vidare dessa till en ny mapp vid namn "pub.
                             Mappen "pub" (publicering) kommer vara den mapp som körs när sidan läggs upp. 
-                        </p>
+                        </li>
                         <li><b>cssTask</b></li>
-                        <p>Tar alla filer som slutar på ".css", konkatinerar och minimerar dessa och skickar till mappen pub.</p>
+                        <li class="none-li">Tar alla filer som slutar på ".css", konkatinerar och minimerar dessa och skickar till mappen pub.</li>
                         <li><b>jsTask</b></li>
-                        <p>Tar alla filer som slutar på ".js", konkatinerar, minimerar och transpilerar dessa och skickar till pub.</p>
+                        <li class="none-li">Tar alla filer som slutar på ".js", konkatinerar, minimerar och transpilerar dessa och skickar till pub.</li>
                         <li><b>imageTask</b></li>
-                        <p>Tar alla filer som ligger i image-mappen, optimerar dessa och skickar till pub.</p>
+                        <li class="none-li">Tar alla filer som ligger i image-mappen, optimerar dessa och skickar till pub.</li>
                         <li><b>convertTowebP</b></li>
-                        <p>Tar alla filer som slutar på "webp", konverterar dessa och skickar till pub.</p>
+                        <li class="none-li">Tar alla filer som slutar på "webp", konverterar dessa och skickar till pub.</li>
                         <li><b>watchTask</b></li>
-                        <p>Denna funktion övervakar filändrningar och kör automatiskt vissa uppgifter när ändringar upptäckts. Funktionen tar två argument:
+                        <li class="none-li">Denna funktion övervakar filändrningar och kör automatiskt vissa uppgifter när ändringar upptäckts. Funktionen tar två argument:
                             vilka som ska köras och vad som ska göras. I mitt fall vill jag att mina html, css, js och bild-filer ska köras med respektive funktion för dessa. 
                             Funktionerna kör jag parallellt med gulp-funktionen "parallel".
-                        </p>
+                        </li>
                     </ul>
                     <br>
                     Utöver dessa funktioner som utför olika uppgifter för de specifika filerna i mitt projekt, så har jag ytterligare två "funktioner". Dessa är:
                     <ul class="gulp-list">
                         <li><b>exports.default</b></li>
-                        <p>Den här koden kör en serie med två uppgifter. Först kör den copyHTML, cssTask, jsTask, imageTask och convertToWebP. Dessa körs parallellt eftersom 
+                        <li class="none-li">Den här koden kör en serie med två uppgifter. Först kör den copyHTML, cssTask, jsTask, imageTask och convertToWebP. Dessa körs parallellt eftersom 
                             de är inbakade i funktionen "parallel". Sedan körs även funktionen "watchTask". Detta för att kontrollera i vilken ordning allting körs. 
-                        </p>
+                        </li>
                         <li><b>exports.publish</b></li>
-                        <p>Denna kodrad krävdes för att kunna lägga upp projektet på Netlify. I alternativet för "build command" skrev jag in "gulp publish" och i alternativet för 
+                        <li class="none-li">Denna kodrad krävdes för att kunna lägga upp projektet på Netlify. I alternativet för "build command" skrev jag in "gulp publish" och i alternativet för 
                             "publish directory" skrev jag in "pub". 
-                        </p> 
+                        </li> 
                     </ul>
-                </p>
+                </div>
             </div>
             <div>
                 <h4>Github och Netlify</h4>
