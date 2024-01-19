@@ -38,3 +38,28 @@
     #hamburger:hover{cursor: pointer;}
     #close:hover{cursor: pointer;}
 }
+@media all and (max-width: 800px){
+    .logo{
+        font-size: 1.7em;
+        padding: 0.5rem 0.8rem;
+    }
+    #hamburger{
+        font-size: 1.7rem;
+        padding: 0.5rem 0.8rem;
+    }
+    .nav-mobile{
+        width: 80%;
+    }
+}
+@media all and (max-width: 600px){
+    .logo{
+        font-size: 1em;
+    }
+    #hamburger{
+        font-size: 1rem;
+    }
+    .nav-mobile{
+        width: 100%;
+    }
+
+}
