@@ -4,6 +4,7 @@ const concat = require("gulp-concat");
 const terser = require("gulp-terser");
 const cssNano = require("gulp-cssnano");
 const imageMin = require("gulp-imagemin");
+const htmlMin = require("gulp-htmlmin");
 
 
 //Sökvägar
@@ -17,6 +18,7 @@ const files = {
 //HTML-task - kopiera filer till pub-katalog
 function copyHTML() {
     return src(files.htmlPath)
+    .pipe(htmlMin({collapseWhitespace: true}))
     .pipe(dest("pub"));
 }
 
