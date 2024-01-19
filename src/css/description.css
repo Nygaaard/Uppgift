@@ -11,6 +11,10 @@
     margin-top: 1.4rem;
     margin-bottom: 0.8rem;
 }
+.gulp-list li {
+    margin-top: 0.4rem;
+    margin-bottom: 0.3rem;
+}
 @media all and (max-width:1000px){
     .content-container{
         width: 70%;
