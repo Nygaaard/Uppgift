@@ -1,0 +1,21 @@
+.about{
+    width: 50%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.about h1, h2{
+    margin-top: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+@media all and (max-width:800px){
+    .about{
+        width: 70%;
+        padding: 0.5rem;
+    }
+}
+@media all and (max-width:600px){
+    .about{
+        width: 90%;
+        padding: 0rem;
+    }
+}
