@@ -55,18 +55,29 @@
                     <ul class="gulp-list">
                         <li><b>Gulp-concat</b></li>
                         <p>Detta paket kokatinerar (slår ihop) olika flera filer till en. Jag har använt detta till funcktionerna cssTask och jsTask.</p>
+                        <p>Kommando: <i>npm i gulp-concat --save-dev</i></p>
                         <li><b>Gulp-terser</b></li>
                         <p>Terser minimerar och tar bort onödigt filinnehåll som kommenterar, radbryt osv. Jag använder denna till funktionen jsTask.</p>
+                        <p>Kommando: <i>npm install gulp-terser --save-dev</i></p>
                         <li><b>Gulp-cssnano</b></li>
                         <p>CSS-nano kompakterar css-filer så att de tar mindre plats. Denna använder jag bara till funktionen cssTask.</p>
+                        <p>Kommando: <i>npm install gulp-cssnano --save-dev</i></p>
                         <li><b>Gulp-imagemin</b></li>
-                        <p>Gulp-imagegmin optimerar bilder så att de tar kortare tid att ladda upp. Denna använder jag till funktionen imageTask.</p>
+                        <p>Gulp-imagegmin optimerar bilder så att de tar kortare tid att ladda upp. Denna använder jag till funktionen imageTask.
+                            Jag ändrade dock detta paket till en äldre version, då det nya inte fungerade. Det gjorde jag genom att ändra texten i "package.json"-
+                            filen till ""gulp-imagemin": "^7.1.0"". Därefter tog jag bort node_modules-filen och installerade om npm-paketet med kommandot "npm install". 
+                            Det ändrade version på paketet och det fungerade efter det. 
+                        </p>
+                        <p>Kommando: <i>npm install --save-dev gulp-imagemin</i></p>
                         <li><b>Gulp-htmlmin</b></li>
                         <p>Minimerar HTML-filer. Denna använder jag till funktionen copyHTML.</p>
+                        <p>Kommando: <i>npm install --save-dev gulp-htmlmin</i></p>
                         <li><b>Gulp-webp</b></li>
                         <p>Omvandlar bilder till webP. Denna använder jag till funktionen convertToWebP.</p>
+                        <p>Kommando: <i>npm i gulp-webp --save-dev</i></p>
                         <li><b>Gulp-babel</b></li>
                         <p>Babel transpilerar JS-kod. Jag använder denna till jsTask.</p>
+                        <p>Kommando: <i>npm install --save-dev gulp-babel @babel/core @babel/preset-env</i></p>
                     </ul>
                     <br>
                     Jag har även skapat variabler för olika funktioner från gulp-paketet. Dessa är:
@@ -121,7 +132,8 @@
                 <h4>Github och Netlify</h4>
                 <p>
                     Efter att ha initierat Git så har jag gjort regelbundna commits. Framförallt efter större ändrningar. Jag skapade ett repo genom att "Publicera till Github" ifrån extensionen "Source Control" i 
-                    Visual Studio Code. Sedan har jag lagt upp sidan på Netlify genom att importera projektet från Github.
+                    Visual Studio Code. Sedan har jag lagt upp sidan på Netlify genom att importera projektet från Github. Nu uppdateras sidan på Netlify varje gång jag pushar projektet 
+                    till Github. 
                 </p>
             </div>
         </section>
