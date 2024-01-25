@@ -9,4 +9,4 @@ var hamburgerEl = document.getElementById("hamburger"),
   navMobileEl = document.getElementById("nav-mobile");
 hamburgerEl.addEventListener("click", function () {
   navMobileEl.style.display = "block";
-});
+}), console.log("Hej");
