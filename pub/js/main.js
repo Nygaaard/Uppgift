@@ -18,6 +18,7 @@ var url = "https://dahlgren.miun.se/ramschema_ht23.php";
 var cProgEl = document.getElementById("cProg"),
   cCodeEl = document.getElementById("cCode"),
   cNameEl = document.getElementById("cName"),
+  searchFieldEl = document.getElementById("search-field"),
   sortDirection = !0;
 function init() {
   return _init.apply(this, arguments);
@@ -37,13 +38,13 @@ function _init() {
           return e.json();
         case 6:
           t = _context.sent;
-          sortArrayByName(t), displaySchedule(t), cProgEl.addEventListener("click", function () {
+          cProgEl.addEventListener("click", function () {
             sortDirection = !sortDirection, sortArrayByProgression(t), displaySchedule(t);
           }), cCodeEl.addEventListener("click", function () {
             sortDirection = !sortDirection, sortArrayByCode(t), displaySchedule(t);
           }), cNameEl.addEventListener("click", function () {
             sortDirection = !sortDirection, sortArrayByName(t), displaySchedule(t);
-          });
+          }), sortArrayByName(t), displaySchedule(t);
           _context.next = 13;
           break;
         case 10:

@@ -1,37 +1,73 @@
 .schedule-container{
-    border: 1px solid #000;
     width: 100%;
+    margin: 0;
 }
 table{
-    width:50%;
+    width:70%;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
+    background-color: rgb(252, 251, 251);
+    box-shadow: 0px 0px 2px 2px #c9c6c6;
+    padding: 1rem 1rem;
+    border-radius: 0.4rem;
+    margin-top: 2.2rem;
 }
 .thHeading{
-    border: 1px solid #000;
-    padding: 0.4rem;
+    text-decoration: underline;
 }
 .thHeading:hover{
     cursor: pointer;
-    background-color: #e2d5d5;
+    color: #3d3939;
 }
 .thHeading:active{
-    background-color: #FFF;
+    color: #000;
+}
+td{
+    padding: 0.4rem;
+    border-bottom: 1px solid #000;
 }
 .schedule-container h1{
     text-align: center;
-    margin: 0.6rem;
+    margin: 1.2rem 0 0 1.2rem;
 }
 .search-container{
     text-align: center;
     margin: 0.4rem;
 }
 .search-field{
-    width: 30%;
+    width: 40%;
     min-height: 1.7rem;
 }
 @media all and (max-width: 800px){
-    .table{
+    table{
+        width: 80%;
+    }
+    .thHeading{
+        padding: 0.4rem;
+    }
+    .search-field{
+        width: 60%;
+    }
+}
+@media all and (max-width:600px){
+    table{
+        width: 90%;
+        padding: 0;
+        font-size: 14px;
+    }
+    .schedule-container h1{
+        text-align: center;
+        margin: 0;
+        font-size: 18px;
+    }
+    .search-container{
+        margin: 0;
         width: 100%;
+    }
+    .thHeading{
+        padding: 0;
+    }
+    td{
+        padding: 0;
     }
 }

@@ -4,6 +4,7 @@ const url = "https://dahlgren.miun.se/ramschema_ht23.php";
 let cProgEl = document.getElementById("cProg");
 let cCodeEl = document.getElementById("cCode");
 let cNameEl = document.getElementById("cName");
+let searchFieldEl = document.getElementById("search-field");
 let sortDirection = true;
 
 window.onload = init;
@@ -13,9 +14,7 @@ async function init() {
         const response = await fetch(url);
         let scheduleList = await response.json();
 
-        sortArrayByName(scheduleList);
-        displaySchedule(scheduleList);
-
+        //Eventlyssnare för sortering 
         cProgEl.addEventListener("click", function(){
             sortDirection = !sortDirection;
             sortArrayByProgression(scheduleList);
@@ -33,6 +32,10 @@ async function init() {
             sortArrayByName(scheduleList);
             displaySchedule(scheduleList);
         })
+
+        sortArrayByName(scheduleList);
+        displaySchedule(scheduleList);
+
     } catch {
         document.getElementById("error").innerHTML = "<p>Något gick fel...</p>";
     }
@@ -77,3 +80,4 @@ function sortArrayByProgression(schedule) {
         schedule.sort((a, b) => (a.progression > b.progression) ? 1 : -1).reverse();
     }
 }
+

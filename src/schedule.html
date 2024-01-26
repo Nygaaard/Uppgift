@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Om oss</title>
+        <title>Ramschema</title>
         <!-- <link rel="stylesheet" href="css/body.css">
         <link rel="stylesheet" href="css/header.css">
         <link rel="stylesheet" href="css/mediaQueries.css">
@@ -38,29 +38,29 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <section class="schedule-container">
+            <h1>Webbutveckling - Ramschema</h1>
+            <div class="search-container">
+                <label for="search">Sök:</label><br>
+                <input type="search" placeholder="Sök efter kurskod eller kursnamn" class="search-field" id="search-field">
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th id="cCode" class="thHeading">Kurskod</th>
+                        <th id="cName" class="thHeading">Namn</th>
+                        <th id="cProg" class="thHeading">Progression</th>
+                    </tr>
+                </thead>
+                <tbody id="schedule-list"></tbody>
+            </table>
+            <div id="error"></div>
+        </section>
+    </main>
+    <footer>
+        <p>Kurs: Frontend-baserad webbutveckling</p>
+        <p>&copy;Andreas Nygård, 2024</p>
+    </footer>
 </body>
-<main>
-    <section class="schedule-container">
-        <h1>Webbutveckling - Ramschema</h1>
-        <div class="search-container">
-            <label for="search">Sök:</label><br>
-            <input type="search" placeholder="Sök efter kurskod eller kursnamn" class="search-field">
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th id="cCode" class="thHeading">Kurskod</th>
-                    <th id="cName" class="thHeading">Namn</th>
-                    <th id="cProg" class="thHeading">Progression</th>
-                </tr>
-            </thead>
-            <tbody id="schedule-list"></tbody>
-        </table>
-        <div id="error"></div>
-    </section>
-</main>
-<footer>
-    <p>Kurs: Frontend-baserad webbutveckling</p>
-    <p>&copy;Andreas Nygård, 2024</p>
-</footer>
 </html>
