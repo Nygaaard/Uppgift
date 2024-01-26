@@ -65,9 +65,9 @@ td{
         width: 100%;
     }
     .thHeading{
-        padding: 0;
+        padding: 0.3rem;
     }
     td{
-        padding: 0;
+        padding: 0.4rem;
     }
 }
