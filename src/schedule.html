@@ -42,16 +42,21 @@
 <main>
     <section class="schedule-container">
         <h1>Webbutveckling - Ramschema</h1>
-        <div>
+        <div class="search-container">
             <label for="search">Sök:</label><br>
-            <input type="search" placeholder="Sök efter kurskod eller kursnamn">
+            <input type="search" placeholder="Sök efter kurskod eller kursnamn" class="search-field">
         </div>
-        <div>
-            <table>
-                <thead></thead>
-                <tbody></tbody>
-            </table>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th id="cCode" class="thHeading">Kurskod</th>
+                    <th id="cName" class="thHeading">Namn</th>
+                    <th id="cProg" class="thHeading">Progression</th>
+                </tr>
+            </thead>
+            <tbody id="schedule-list"></tbody>
+        </table>
+        <div id="error"></div>
     </section>
 </main>
 <footer>

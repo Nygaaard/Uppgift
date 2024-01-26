@@ -11,34 +11,78 @@ closeEl.addEventListener("click", function () {
 });
 var hamburgerEl = document.getElementById("hamburger"),
   navMobileEl = document.getElementById("nav-mobile");
-function loadSchedule() {
-  return _loadSchedule.apply(this, arguments);
+hamburgerEl.addEventListener("click", function () {
+  navMobileEl.style.display = "block";
+});
+var url = "https://dahlgren.miun.se/ramschema_ht23.php";
+var cProgEl = document.getElementById("cProg"),
+  cCodeEl = document.getElementById("cCode"),
+  cNameEl = document.getElementById("cName"),
+  sortDirection = !0;
+function init() {
+  return _init.apply(this, arguments);
 }
-function _loadSchedule() {
-  _loadSchedule = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var e;
+function _init() {
+  _init = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+    var e, t;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           _context.prev = 0;
           _context.next = 3;
-          return fetch("https://dahlgren.miun.se/ramschema_ht23.php");
+          return fetch(url);
         case 3:
-          e = _context.sent.json();
-          console.log(e);
-          _context.next = 9;
+          e = _context.sent;
+          _context.next = 6;
+          return e.json();
+        case 6:
+          t = _context.sent;
+          sortArrayByName(t), displaySchedule(t), cProgEl.addEventListener("click", function () {
+            sortDirection = !sortDirection, sortArrayByProgression(t), displaySchedule(t);
+          }), cCodeEl.addEventListener("click", function () {
+            sortDirection = !sortDirection, sortArrayByCode(t), displaySchedule(t);
+          }), cNameEl.addEventListener("click", function () {
+            sortDirection = !sortDirection, sortArrayByName(t), displaySchedule(t);
+          });
+          _context.next = 13;
           break;
-        case 7:
-          _context.prev = 7;
+        case 10:
+          _context.prev = 10;
           _context.t0 = _context["catch"](0);
-        case 9:
+          document.getElementById("error").innerHTML = "<p>Något gick fel...</p>";
+        case 13:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[0, 7]]);
+    }, _callee, null, [[0, 10]]);
   }));
-  return _loadSchedule.apply(this, arguments);
+  return _init.apply(this, arguments);
 }
-hamburgerEl.addEventListener("click", function () {
-  navMobileEl.style.display = "block";
-});
+function displaySchedule(e) {
+  var t = document.getElementById("schedule-list");
+  t.innerHTML = "", e.forEach(function (e) {
+    t.innerHTML += "\n        <tr>\n            <td>".concat(e.code, "</td>\n            <td>").concat(e.coursename, "</td>\n            <td>").concat(e.progression, "</td>\n        </tr>\n        ");
+  });
+}
+function sortArrayByName(e) {
+  sortDirection ? e.sort(function (e, t) {
+    return e.coursename > t.coursename ? 1 : -1;
+  }) : e.sort(function (e, t) {
+    return e.coursename > t.coursename ? 1 : -1;
+  }).reverse();
+}
+function sortArrayByCode(e) {
+  sortDirection ? e.sort(function (e, t) {
+    return e.code > t.code ? 1 : -1;
+  }) : e.sort(function (e, t) {
+    return e.code > t.code ? 1 : -1;
+  }).reverse();
+}
+function sortArrayByProgression(e) {
+  sortDirection ? e.sort(function (e, t) {
+    return e.progression > t.progression ? 1 : -1;
+  }) : e.sort(function (e, t) {
+    return e.progression > t.progression ? 1 : -1;
+  }).reverse();
+}
+window.onload = init;
