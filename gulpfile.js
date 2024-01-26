@@ -7,6 +7,7 @@ const imageMin = require("gulp-imagemin");
 const htmlMin = require("gulp-htmlmin");
 const webP = require("gulp-webp");
 const babel = require("gulp-babel");
+const browserSync = require("browser-sync").create();
 
 
 //Sökvägar
@@ -21,7 +22,8 @@ const files = {
 function copyHTML() {
     return src(files.htmlPath)
     .pipe(htmlMin({collapseWhitespace: true}))
-    .pipe(dest("pub"));
+    .pipe(dest("pub"))
+    .pipe(browserSync.stream());
 }
 
 //CSS-task - konkatinerar, minimerar och kopierar
@@ -29,7 +31,8 @@ function cssTask() {
     return src(files.cssPath)
     .pipe(concat("styles.css"))
     .pipe(cssNano())
-    .pipe(dest("pub/css"));
+    .pipe(dest("pub/css"))
+    .pipe(browserSync.stream());
 }
 
 //JS-task - konkatinerar, minimerar och kopierar
@@ -40,25 +43,33 @@ function jsTask() {
     .pipe(babel({
         presets: ['@babel/env']
     }))
-    .pipe(dest("pub/js"));
+    .pipe(dest("pub/js"))
+    .pipe(browserSync.stream());
 }
 
 //Image-task - minimerar och kopierar
 function imageTask() {
     return src(files.imagePath)
     .pipe(imageMin())
-    .pipe(dest("pub/images"));
+    .pipe(dest("pub/images"))
+    .pipe(browserSync.stream());
 }
 
 //Konvertera till webP
 function convertToWebP(){
     return src(files.imagePath)
     .pipe(webP())
-    .pipe(dest("pub/images"));
+    .pipe(dest("pub/images"))
+    .pipe(browserSync.stream());
 }
 
 //Watch
 function watchTask() {
+    browserSync.init({
+        server: {
+            baseDir: "./pub"
+        }
+    });
     watch([files.htmlPath, files.cssPath, files.jsPath, files.imagePath], parallel(copyHTML, cssTask, jsTask, imageTask));
 } 
 
