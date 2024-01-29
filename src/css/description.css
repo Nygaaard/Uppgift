@@ -1,37 +1,42 @@
-.content-container{
-    width: 50%;
-    margin: 0 auto;
-    padding: 1rem;
+.content-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 1rem;
 }
-.gulp-list{
-    width: 90%;
-    margin: 0 auto;
+.gulp-list {
+  width: 90%;
+  margin: 0 auto;
 }
-.content-container h1, h2, h3, h4{
-    margin-top: 1.4rem;
-    margin-bottom: 0.8rem;
+.content-container h1,
+h2,
+h3,
+h4 {
+  margin-top: 1.4rem;
+  margin-bottom: 0.8rem;
 }
 .gulp-list li {
-    margin-top: 0.4rem;
-    margin-bottom: 0.3rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.3rem;
 }
-.none-li{
-    list-style: none;
+.none-li {
+  list-style: none;
 }
-@media all and (max-width:1000px){
-    .content-container{
-        width: 70%;
-        padding: 0.5rem;
-    }
+@media all and (max-width: 1000px) {
+  .content-container {
+    width: 70%;
+    padding: 0.5rem;
+  }
 }
-@media all and (max-width:600px){
-    .content-container{
-        width: 90%;
-    }
+@media all and (max-width: 600px) {
+  .content-container {
+    width: 90%;
+  }
 }
-@media all and (max-width:400px){
-    .content-container{
-        width: 100%;
-    }
-    .content-container h1{font-size: 1rem;}
+@media all and (max-width: 400px) {
+  .content-container {
+    width: 100%;
+  }
+  .content-container h1 {
+    font-size: 1rem;
+  }
 }

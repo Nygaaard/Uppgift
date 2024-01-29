@@ -1,25 +1,26 @@
-.about{
-    width: 50%;
-    margin: 0 auto;
-    padding: 1rem;
+.about {
+  width: 50%;
+  margin: 0 auto;
+  padding: 1rem;
 }
-.about h1, h2{
-    margin-top: 1.4rem;
-    margin-bottom: 0.8rem;
+.about h1,
+h2 {
+  margin-top: 1.4rem;
+  margin-bottom: 0.8rem;
 }
-.purpose-list{
-    width: 90%;
-    margin: 0 auto;
+.purpose-list {
+  width: 90%;
+  margin: 0 auto;
 }
-@media all and (max-width:1000px){
-    .about{
-        width: 80%;
-        padding: 0.5rem;
-    }
+@media all and (max-width: 1000px) {
+  .about {
+    width: 80%;
+    padding: 0.5rem;
+  }
 }
-@media all and (max-width:600px){
-    .about{
-        width: 80%;
-        padding: 0.5rem;
-    }
+@media all and (max-width: 600px) {
+  .about {
+    width: 80%;
+    padding: 0.5rem;
+  }
 }
