@@ -44,6 +44,9 @@ function _init() {
             sortDirection = !sortDirection, sortArrayByCode(t), displaySchedule(t);
           }), cNameEl.addEventListener("click", function () {
             sortDirection = !sortDirection, sortArrayByName(t), displaySchedule(t);
+          }), searchFieldEl.addEventListener("input", function () {
+            var e = searchFieldEl.value;
+            displaySchedule(filterSchedule(t, e));
           }), sortArrayByName(t), displaySchedule(t);
           _context.next = 13;
           break;
@@ -58,6 +61,13 @@ function _init() {
     }, _callee, null, [[0, 10]]);
   }));
   return _init.apply(this, arguments);
+}
+function filterSchedule(e, t) {
+  return e.filter(function (e) {
+    var o = e.coursename.toLowerCase(),
+      r = e.code.toLowerCase();
+    return o.includes(t.toLowerCase()) || r.includes(t.toLowerCase());
+  });
 }
 function displaySchedule(e) {
   var t = document.getElementById("schedule-list");

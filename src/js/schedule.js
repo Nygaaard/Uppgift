@@ -33,12 +33,28 @@ async function init() {
             displaySchedule(scheduleList);
         })
 
+        //Filtera vid sökning
+        searchFieldEl.addEventListener("input", function(){
+            let searchInput = searchFieldEl.value;
+
+            displaySchedule(filterSchedule(scheduleList, searchInput));
+        })
+
         sortArrayByName(scheduleList);
         displaySchedule(scheduleList);
 
     } catch {
         document.getElementById("error").innerHTML = "<p>Något gick fel...</p>";
     }
+}
+
+function filterSchedule(schedule, searchInput){
+    return schedule.filter(schedule => {
+        let name = schedule.coursename.toLowerCase();
+        let code = schedule.code.toLowerCase();
+
+        return name.includes(searchInput.toLowerCase()) || code.includes(searchInput.toLowerCase());
+    });
 }
 
 function displaySchedule(schedule) {
